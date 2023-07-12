@@ -1,4 +1,3 @@
-Overview
 
 Assignment 1: HyperText Transfer Protocol (HTTP) used by the World Wide Web. 
 
