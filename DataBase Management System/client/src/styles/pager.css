@@ -1,0 +1,19 @@
+.paginate {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.item {
+    display: inline-block;
+    padding: 3px;
+}
+
+.item.active {
+    display: inline-block;
+    color: hotpink;
+}
+
+li{
+    list-style-type: none;
+}

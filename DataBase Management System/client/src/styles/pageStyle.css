@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+a {
+    color:darksalmon;
+}
+
+a:visited{
+    color:mediumvioletred  ; 
+}
+
+.commenting {
+    text-align: center;
+    
+}
+
+.rating {
+    margin: auto;
+    width: 150px;
+}
+
+.rate {
+    background-color:chocolate;
+    color: white;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.search {
+    background-color:sandybrown;
+    font-size: 15px;
+    color: white;
+    width: 80px;
+    border: none;
+    transition-duration: 0.5s;
+    cursor: pointer;
+}
+
+.comment {
+    height: 30px;
+    width: 400px;
+}
