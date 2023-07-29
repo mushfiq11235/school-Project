@@ -4,8 +4,9 @@
 2. type npm start
 
 ## Starting the server side
-1. cd into the server folder 
-2. type node index.js
+1.  unzip the node_modules.zip  
+2. cd into the server folder
+3. type node index.js
 
 ## Yay
 * The client side site is at localhost:3000
