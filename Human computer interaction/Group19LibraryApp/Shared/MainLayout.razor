@@ -1,0 +1,167 @@
+﻿@inherits LayoutComponentBase
+@inject Data.LibraryData libData;
+@inject NavigationManager NavManager
+
+<CascadingValue Value="this">
+    <PageTitle>Group19LibraryApp</PageTitle>
+
+    <div class="split-screen">
+        <div class="ApplicationBoundry left">
+            @if (showLocations)
+            {
+
+                <div class="locationMenu">
+                    <div class="location-title">
+                        <button class="dropdown-button" @onclick="this.locationClick">Location...</button>
+                        @if (!locationDropdown)
+                        {
+                            <span class="material-symbols-outlined">expand_more</span>
+                        }
+                        else
+                        {
+                            <span class="material-symbols-outlined">expand_less</span>
+                        }
+                    </div>
+                    @if (locationDropdown)
+                    {
+                        <div class="dropdown-contents">
+                            <button class=@buttonStates[0] @onclick="@(e => locationPressed(0))">LibraryA</button>
+                            <button class=@buttonStates[1] @onclick="@(e => locationPressed(1))">LibraryB</button>
+                            <button class=@buttonStates[2] @onclick="@(e => locationPressed(2))">LibraryC</button>
+                            <button class=@buttonStates[3] @onclick="@(e => locationPressed(3))">LibraryD</button>
+                        </div>
+                    }
+                </div>
+
+            }
+            @if (!locationDropdown)
+            {
+                <div class="content">
+                    @Body
+                </div>
+            }
+            @if (showMenu)
+            {
+                <div class="menuContainer">
+                    <div class="icon-with-text">
+                        <button @onclick="@(e => menuPressed(0))">
+                            <span class="material-symbols-outlined @highlights[0]">home</span>
+                        </button>
+                        <h3>home</h3>
+                    </div>
+
+                    <div class="icon-with-text">
+                        <button @onclick="@(e => menuPressed(1))">
+                            <span class="material-symbols-outlined @highlights[1]">calendar_today</span>
+                        </button>
+                        <h3>reservation</h3>
+                    </div>
+
+                    <div class="icon-with-text">
+                        <button @onclick="@(e => menuPressed(2))">
+                            <span class="material-symbols-outlined @highlights[2]">map</span>
+                        </button>
+                        <h3>map</h3>
+                    </div>
+
+                    <div class="icon-with-text">
+                        <button @onclick="@(e => menuPressed(3))">
+                            <span class="material-symbols-outlined @highlights[3]">search</span>
+                        </button>
+                        <h3>search</h3>
+                    </div>
+
+                    <div class="icon-with-text">
+                        <button @onclick="@(e => menuPressed(4) )">
+                            <span class="material-symbols-outlined @highlights[4]">account_circle</span>
+                        </button>
+                        <h3>profile</h3>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="right">
+            <a href="/Browse">Browse</a><br />
+            <a href="/ViewReservation">view reservations</a><br />
+            <a href="/SignUp">sign in</a><br />
+            <a href="/Search">search</a><br />
+            <a href="/Profile">profile</a><br />
+            <a href="/Account">account</a><br />
+            <a href="/MainMap">map</a><br />
+        </div>
+    </div>
+</CascadingValue>
+
+
+@code
+{
+    /*Visibility controllers*/
+    private string[] buttonStates = { "button-selected", "button-deselected", "button-deselected", "button-deselected" };
+    private string[] highlights = { "blue-highlight", "", "", "", "" };
+
+    public bool showMenu { get; set; } = true;
+    public bool showLocations { get; set; } = true;
+    public void update()
+    {
+        StateHasChanged();
+    }
+
+
+    /*Logic controllers*/
+    private bool locationDropdown = false;
+    private void locationClick()
+    {
+        locationDropdown = !locationDropdown;
+        update();
+    }
+
+    private void menuPressed(int value)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            highlights[i] = "";
+        }
+        highlights[value] = "blue-highlight";
+        if (value == 0)
+        {
+            NavManager.NavigateTo("/Browse");
+        }
+        if (value == 1)
+        {
+            NavManager.NavigateTo("/ViewNewReservation");
+        }
+        if (value == 2)
+        {
+            NavManager.NavigateTo("/MainMap");
+        }
+        if (value == 3)
+        {
+            NavManager.NavigateTo("/Search");
+        }
+        if (value == 4)
+        {
+            NavManager.NavigateTo("/Profile");
+        }
+        update();
+    }
+
+    private void locationPressed(int value)
+    {
+        buttonStates[0] = "button-deselected";
+        buttonStates[1] = "button-deselected";
+        buttonStates[2] = "button-deselected";
+        buttonStates[3] = "button-deselected";
+        buttonStates[value] = "button-selected";
+        string[] letters = new string[] { "A", "B", "C", "D" };
+        Group19LibraryApp.Data.LibraryData.currentLocation = "Library" + letters[value];
+        System.Diagnostics.Debug.WriteLine(Group19LibraryApp.Data.LibraryData.currentLocation);
+
+        update();
+    }
+
+    protected override void OnInitialized()
+    {
+        libData.InitalizeData();
+    }
+}

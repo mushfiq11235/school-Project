@@ -1,0 +1,168 @@
+MainLayout.css
+
+main {
+  flex:1;
+}
+
+.text-center{
+    font-size: 32px;
+}
+
+.ApplicationBoundry {
+    width: 480px;
+    height: 854px;
+    border-width: 2px;
+    border-style: solid;
+    position: absolute;
+    margin: 40px;
+    border-radius: 55px;
+    overflow: hidden;
+}
+
+.split-screen {
+    display: flex;
+}
+
+.splitscreen .left {
+    flex: 1;
+    position: absolute;
+    width: 50px;
+}
+.splitscreen .right {
+    flex: 1;
+    margin-left: 50px;
+}
+
+.content {
+    position: static;
+    height: 700px;
+    padding-top: 0px;
+}
+
+.menuContainer {
+    padding-left: 25px;
+    padding-right: 25px;
+    position: absolute;
+    bottom: 0px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-around;
+    border-top: 2px solid black;
+    left: 0px;
+    background-color: #EFF5FB;
+    height: 65px;
+}
+
+.icon-with-text > * {
+    font-size: 50px;
+    line-height: 50px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+button > span {
+    font-size: 45px;
+}
+
+.icon-with-text > h3 {
+    font-size: 15px;
+    line-height: 15px;
+    margin-top: -3px;
+}
+
+.icon-with-text > button {
+    background-color: inherit;
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+}
+
+
+.icon-with-text {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.locationMenu {
+    position: static;
+    top: 0px;
+    width: 480px;
+    left: 0px;
+    margin-top: -3px;
+    margin-left: -2px;
+    background-color: #375171;
+}
+
+.location-title {
+    display: flex;
+    height: 60px;
+}
+
+.location-title > span {
+    color: whitesmoke;
+    font-size: 50px;
+    line-height: 60px;
+}
+
+.locationMenu > * {
+    width: 480px;
+}
+
+.dropdown-button {
+    height: 40px;
+    color: #DEE2EE;
+    font-family: "Inter", sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    background-color: #375171;
+    margin-left: 30%;
+    margin-top: 4px;
+}
+
+.button-selected {
+    background-color: #0135EB;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+    border: solid 2px;
+}
+
+.button-deselected {
+    background-color: cornflowerblue;
+}
+
+button {
+    border: none;
+}
+
+.dropdown-contents {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 700px;
+    background-color: white;
+}
+
+.dropdown-contents > * {
+    height: 100px;
+    border-radius: 25px;
+    
+}
+
+
+.blue-highlight {
+    color: #0001FC;
+}
+
+
+.left {
+    left: 0px;
+    position: relative;
+}
+
+.right {
+    right: 0px;
+    position: relative;
+}
