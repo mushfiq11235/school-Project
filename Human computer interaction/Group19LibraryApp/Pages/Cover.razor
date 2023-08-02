@@ -1,0 +1,63 @@
+@inject NavigationManager NavManager
+@using Group19LibraryApp.Pages.Components
+@using Group19LibraryApp.Data
+@using System
+@using System.Collections.Generic
+@using System.Linq
+@using System.Text
+@using System.Threading.Tasks
+
+@page "/Cover/{PathParam}"
+
+<PageTitle>Cover</PageTitle>
+
+<section>
+    <button id="back" class="back" @onclick="GoBack">&#8592</button>
+    <img class="cover-sizing" src="Images/@lib_item.ItemImageLink" alt="@lib_item.Title @lib_item.Type by @lib_item.Author">
+    <button class="see-more" @onclick="onSeeMore">
+        scroll down to see more <p style="margin: 0px 0px 0px 0px;"></p>
+        <span class="material-symbols-outlined" style="font-size: 48px;">
+            expand_more
+        </span>
+    </button>
+</section>
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    /*public LibraryItem thisbook = Request.Form("thi_book");*/
+    public LibraryItem lib_item = new();
+
+    [Parameter]
+    public string PathParam { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = false;
+        Layout.showLocations = false;
+        Layout.update();
+
+        if (PathParam != null)
+        {
+            foreach (var item in LibraryData.books)
+            {
+                if (item.Title == PathParam)
+                {
+                    lib_item = item;
+                    break;
+                }
+            }
+        }
+    }
+
+    private void GoBack()
+    {
+        NavManager.NavigateTo("/Browse/");
+    }
+  
+
+    private void onSeeMore() {
+        NavManager.NavigateTo($"/Details/{lib_item.Title}");
+    }
+}

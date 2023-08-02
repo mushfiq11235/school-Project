@@ -1,0 +1,60 @@
+
+.main-text {
+    font-family: 'Space_Grotesk', 'Spectral', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif, serif;
+}
+
+.secondary-text {
+    font-family: 'Spectral', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif, serif;
+}
+
+.reservation-main {
+    font-family: 'Space_Grotesk', 'Spectral', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif, serif;
+    text-align: center;
+    text-decoration: underline;
+    margin: 15px 0px 0px 0px;
+}
+
+.reservation-list {
+    margin: 15px 0px 0px 0px;
+    border-bottom-style: solid;
+    border-color: #50515247;
+}
+
+.a-reservation-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+    justify-content: space-around;
+    border-top-style: solid;
+    border-color: #50515247;
+}
+
+.book-cover {
+    margin-left: -15px;
+    padding: 0px 20px 0px 0px;
+    border-right-style: solid;
+    border-right-color: #50515247;
+}
+
+.book-image {
+    object-fit: cover;
+    width: 118px;
+    height: 170px;
+    margin: 25px 0px 25px 00px;
+    border-style: solid;
+    border-color: #000000;
+}
+
+.reservation-details {
+    margin: 35px 0px 0px -40px;
+    text-align: center;
+}
+
+.back {
+    position: absolute;
+    border-style: none;
+    background-color: #ffffff00;
+    font-size: 52px;
+    margin: -70px 0px 0px 10px;
+}

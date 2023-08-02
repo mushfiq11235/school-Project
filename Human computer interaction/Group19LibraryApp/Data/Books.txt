@@ -1,0 +1,267 @@
+{
+Title:The Ripple Effect;
+Author:Daryle S.;
+Synopsis:This is a synposis
+This is also part of the synopsis;
+Type:Book;
+Image:free-cover.jpg;
+Layout Image:pinLayout.png;
+Location:LibraryA,1,13,2;
+Category:Fantasy,Sci-Fi;
+}
+{
+Title:The Name of The Wind;
+Author:Patrick Rothfuss;
+Synopsis:The tale of Kvothe, from his childhood in a troupe of traveling players, to years spent as a near-feral orphan in a crime-riddled city, to his daringly brazen yet successful bid to enter a difficult and dangerous school of magic. In these pages, you will come to know Kvothe as a notorious magician, an accomplished thief, a masterful musician, and an infamous assassin. But this book is so much more, for the story it tells reveals the truth behind Kvothe's legend;
+Type:Book;
+Image:NameofWind.jpg;
+Layout Image:pin3Layout.png;
+Location:LibraryB,1,20,2;
+Category:Fantasy,Sci-Fi;
+}
+{
+Title:American Psycho;
+Author:Bret Easton Ellis;
+Synopsis:American Psycho is a 1991 novel by American author Bret Easton Ellis. Set in 1980s New York, the novel follows the life of a wealthy young stockbroker, the novel's narrator, Patrick Bateman. Surrounded by a world of vapid commercialism and empty excess, Bateman begins acting on his psychopathic thoughts and impulses.;
+Type:Book;
+Image:AmericanPsyco.jpg;
+Layout Image:pin2Layout.png;
+Location:LibraryA,1,10,2;
+Category:Comedy, Horror;
+}
+{
+Title:The Road;
+Author:Cormac McCarthy;
+Synopsis:The Road is a 2006 post-apocalyptic novel by American writer Cormac McCarthy. The book details the grueling journey of a father and his young son over a period of several months across a landscape blasted by an unspecified cataclysm that has destroyed industrial civilization and almost all life.;
+Type:Book;
+Image:Road.jpg;
+Layout Image:pin1Layout.png;
+Location:LibraryA,1,5,2;
+Category:Adventure;
+}
+{
+Title:Dune;
+Author:Frank Herbert;
+Synopsis:Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet's exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive.;
+Type:Book;
+Image:Dune.jpg;
+Layout Image:pin3Layout.png;
+Location:LibraryB,1,20,2;
+Category:Fantasy,Sci-Fi;
+}
+{
+Title:Operating Systems Concepts;
+Author:Silberschatz, Galvin, Gagn;
+Synopsis:Keep pace with the fast-developing world of operating systems
+Open-source operating systems, virtual machines, and clustered computing are among the leading fields of operating systems and networking that are rapidly changing. With substantial revisions and organizational changes, Silberschatz, Galvin, and Gagne’s Operating System Concepts, Eighth Edition remains as current and relevant as ever, helping you master the fundamental concepts of operating systems while preparing yourself for today’s emerging developments.;
+Type:Textbook;
+Image:OperatingSystems.jpg;
+Location:LibraryA,1,13,2;
+Category:CPSC;
+}
+{
+Title:Principles of Economics;
+Author:N. Gregory Mankiw;
+Synopsis:Now you can master the principles of economics with the help of the most popular economics textbook trusted by students worldwide -- Mankiw’s PRINCIPLES OF ECONOMICS, 9E. Using a clear, inviting writing style, this book emphasizes only the material that helps you better understand the world and economy in which you live. You learn to become a more astute participant in today's economy with a strong understanding of both the potential and limits of economic policy. The latest relevant examples bring economic principles to life.;
+Type:Textbook;
+Image:Economics.jpg;
+Location:LibraryA,1,13,2;
+Category:Fantasy,Sci-Fi;
+}
+{
+Title:Human Evolution;
+Author:Roger Lewin;
+Synopsis:The brief length and focused coverage of Human Evolution: An Illustrated Introduction have made this best-selling textbook the ideal complement to any biology or anthropology course in which human evolution is taught. The text places human evolution in the context of humans as animals, while also showing the physical context of human evolution, including climate change and the impact of extinctions. Chapter introductions, numerous drawings and photographs, and an essential glossary all add to the accessibility of this text.;
+Type:Textbook;
+Image:Evolution.jpg;
+Location:LibraryA,1,13,2;
+Category:Biology;
+}
+{
+Title:The Engineering Book;
+Author:Marshall Brain;
+Synopsis:Engineering is where human knowledge meets real-world problems—and solves them. It's the source of some of our greatest inventions, from the catapult to the jet engine. Marshall Brain, creator of the How Stuff Works series and a professor at the Engineering Entrepreneurs Program at NCSU, provides a detailed look at 250 milestones in the discipline. He covers the various areas, including chemical, aerospace, and computer engineering, from ancient history to the present. The topics include architectural wonders like the Acropolis, the Great Wall of China, and the Eiffel Tower; transportation advances such as the high-speed bullet train; medical innovations, including the artificial heart and kidney dialysis; developments in communications, such as the cell phone; as well as air conditioning, Wi-Fi, the Large Hadron Collider, the self-driving car, and more. ;
+Type:Textbook;
+Image:Engineering.jpg;
+Location:LibraryA,1,13,2;
+Category:Engineering;
+}
+{
+Title:Networking for Dummies;
+Author:J.J. Newman;
+Type:Textbook;
+Category:CPSC;
+Image:free-cover.jpg;
+Location:LibraryA,1,13,2;
+}
+{
+Title:Network Programmability and Automation;
+Author:Jason Edelman;
+Type:Textbook;
+Category:CPSC;
+Image:NetworkProgrammingAutomation.jpg;
+Synopsis:The book is written by a group of authors Jason Edelman, Scott S. Lowe, and Matt Oswalt. It covers Python programming basics, Linux fundamentals, JSON, XML, YAML, and YANG for networking, Jinja templating. The book includes topics like the role of API in network automation of Git to manage code changes. You will also learn how to use Ansible, Salt, and StackStrom to automate network devices.;
+Location:LibraryA,1,13,2;
+}
+{
+Title:Introduction to Computer Graphics;
+Author:David J Eck;
+Type:Textbook;
+Category:CPSC,Engineering;
+Image:introCompGraphics.png;
+Synopsis:Introduction to Computer Graphics is a free, on-line textbook covering the fundamentals of computer graphics and computer graphics programming. This book is meant for use as a textbook in a one-semester course that would typically be taken by undergraduate computer science majors in their third or fourth year of college.;
+Location:LibraryA,1,13,2;
+}
+{
+Title:Computer Graphics;
+Author:Alexey;
+Type:Textbook;
+Category:CPSC,Engineering;
+Image:CompGraphics.jpg;
+Synopsis:Complete Coverage of the Current Practice of Computer GraphicsComputer Graphics: From Pixels to Programmable Graphics Hardware explores all major areas of modern computer graphics, starting from basic mathematics and algorithms and concluding with OpenGL and real-time graphics. It gives students a firm foundation in today's high-performance graphic;
+Location:LibraryA,1,13,2;
+}
+{
+Title:Artificial Intelligence Basics;
+Author:Tom Tauli;
+Type:Textbook;
+Category:CPSC;
+Image:ArtificialIntBasics.png;
+Synopsis:This book equips you with a fundamental grasp of Artificial Intelligence and its impact. It provides a non-technical introduction to important concepts such as Machine Learning, Deep Learning, Natural Language Processing, Robotics, and more. Further, the author expands on the questions surrounding the future impact of AI on aspects that include societal trends, ethics, governments, company structures, and daily life.;
+Location:LibraryA,1,13,2;
+}
+{
+Title:Python: Beginners guide to Artificial Intelligence;
+Author:Rahul Kumar;
+Type:Textbook;
+Category:CPSC, Engineering;
+Image:PythonAI.png;
+Synopsis:This book helps you to gain real-world contextualization using deep learning problems concerning research and application. Design and implement machine intelligence using real-world AI-based examples. This book offers knowledge in machine learning, deep learning, data analysis, TensorFlow, Python, and the fundamentals of AI, and will be able to apply your skills in real-world projects.;
+Location:LibraryA,1,13,2;
+}
+{
+Title:Graph Theory;
+Author:Daniel A. Marcus;
+Type:Textbook;
+Category:CPSC;
+Image:GraphTheory.jpg;
+Synopsis:Graph Theory presents a natural, reader-friendly way to learn some of the essential ideas of graph theory starting from first principles. The format is similar to the companion text, Combinatorics: A Problem Oriented Approach also by Daniel A. Marcus, in that it combines the features of a textbook with those of a problem workbook. The material is presented through a series of approximately 360 strategically placed problems with connecting text. This is supplemented by 280 additional problems that are intended to be used as homework assignments. Concepts of graph theory are introduced, developed, and reinforced by working through leading questions posed in the problems.;
+Location:LibraryA,1,13,2;
+}
+
+
+
+
+{
+Title:The Ripple Effect;
+Author:Daryle S.;
+Synopsis:This is a synposis
+This is also part of the synopsis;
+Type:Book;
+Image:free-cover.jpg;
+Layout Image:pinLayout.png;
+Location:LibraryB,1,13,2;
+Category:Fantasy,Sci-Fi;
+}
+{
+Title:American Psycho;
+Author:Bret Easton Ellis;
+Synopsis:American Psycho is a 1991 novel by American author Bret Easton Ellis. Set in 1980s New York, the novel follows the life of a wealthy young stockbroker, the novel's narrator, Patrick Bateman. Surrounded by a world of vapid commercialism and empty excess, Bateman begins acting on his psychopathic thoughts and impulses.;
+Type:Book;
+Image:AmericanPsyco.jpg;
+Layout Image:pin2Layout.png;
+Location:LibraryB,1,10,2;
+Category:Comedy, Horror;
+}
+{
+Title:The Road;
+Author:Cormac McCarthy;
+Synopsis:The Road is a 2006 post-apocalyptic novel by American writer Cormac McCarthy. The book details the grueling journey of a father and his young son over a period of several months across a landscape blasted by an unspecified cataclysm that has destroyed industrial civilization and almost all life.;
+Type:Book;
+Image:Road.jpg;
+Layout Image:pin1Layout.png;
+Location:LibraryB,1,5,2;
+Category:Adventure;
+}
+{
+Title:Dune;
+Author:Frank Herbert;
+Synopsis:Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet's exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive.;
+Type:Book;
+Image:Dune.jpg;
+Layout Image:pin3Layout.png;
+Location:LibraryB,1,20,2;
+Category:Fantasy,Sci-Fi;
+}
+{
+Title:Operating Systems Concepts;
+Author:Silberschatz, Galvin, Gagn;
+Synopsis:Keep pace with the fast-developing world of operating systems
+Open-source operating systems, virtual machines, and clustered computing are among the leading fields of operating systems and networking that are rapidly changing. With substantial revisions and organizational changes, Silberschatz, Galvin, and Gagne’s Operating System Concepts, Eighth Edition remains as current and relevant as ever, helping you master the fundamental concepts of operating systems while preparing yourself for today’s emerging developments.;
+Type:Textbook;
+Image:OperatingSystems.jpg;
+Location:LibraryB,1,13,2;
+Category:CPSC;
+}
+{
+Title:Principles of Economics;
+Author:N. Gregory Mankiw;
+Synopsis:Now you can master the principles of economics with the help of the most popular economics textbook trusted by students worldwide -- Mankiw’s PRINCIPLES OF ECONOMICS, 9E. Using a clear, inviting writing style, this book emphasizes only the material that helps you better understand the world and economy in which you live. You learn to become a more astute participant in today's economy with a strong understanding of both the potential and limits of economic policy. The latest relevant examples bring economic principles to life.;
+Type:Textbook;
+Image:Economics.jpg;
+Location:LibraryB,1,13,2;
+Category:Fantasy,Sci-Fi;
+}
+{
+Title:Human Evolution;
+Author:Roger Lewin;
+Synopsis:The brief length and focused coverage of Human Evolution: An Illustrated Introduction have made this best-selling textbook the ideal complement to any biology or anthropology course in which human evolution is taught. The text places human evolution in the context of humans as animals, while also showing the physical context of human evolution, including climate change and the impact of extinctions. Chapter introductions, numerous drawings and photographs, and an essential glossary all add to the accessibility of this text.;
+Type:Textbook;
+Image:Evolution.jpg;
+Location:LibraryB,1,13,2;
+Category:Biology;
+}
+{
+Title:The Engineering Book;
+Author:Marshall Brain;
+Synopsis:Engineering is where human knowledge meets real-world problems—and solves them. It's the source of some of our greatest inventions, from the catapult to the jet engine. Marshall Brain, creator of the How Stuff Works series and a professor at the Engineering Entrepreneurs Program at NCSU, provides a detailed look at 250 milestones in the discipline. He covers the various areas, including chemical, aerospace, and computer engineering, from ancient history to the present. The topics include architectural wonders like the Acropolis, the Great Wall of China, and the Eiffel Tower; transportation advances such as the high-speed bullet train; medical innovations, including the artificial heart and kidney dialysis; developments in communications, such as the cell phone; as well as air conditioning, Wi-Fi, the Large Hadron Collider, the self-driving car, and more. ;
+Type:Textbook;
+Image:Engineering.jpg;
+Location:LibraryB,1,13,2;
+Category:Engineering;
+}
+{
+Title:Networking for Dummies;
+Author:J.J. Newman;
+Type:Textbook;
+Category:CPSC;
+Image:free-cover.jpg;
+Location:LibraryB,1,13,2;
+}
+{
+Title:Computer Graphics;
+Author:Alexey;
+Type:Textbook;
+Category:CPSC,Engineering;
+Image:CompGraphics.jpg;
+Synopsis:Complete Coverage of the Current Practice of Computer GraphicsComputer Graphics: From Pixels to Programmable Graphics Hardware explores all major areas of modern computer graphics, starting from basic mathematics and algorithms and concluding with OpenGL and real-time graphics. It gives students a firm foundation in today's high-performance graphic;
+Location:LibraryB,1,13,2;
+}
+{
+Title:Artificial Intelligence Basics;
+Author:Tom Tauli;
+Type:Textbook;
+Category:CPSC;
+Image:ArtificialIntBasics.png;
+Synopsis:This book equips you with a fundamental grasp of Artificial Intelligence and its impact. It provides a non-technical introduction to important concepts such as Machine Learning, Deep Learning, Natural Language Processing, Robotics, and more. Further, the author expands on the questions surrounding the future impact of AI on aspects that include societal trends, ethics, governments, company structures, and daily life.;
+Location:LibraryB,1,13,2;
+}
+{
+Title:Graph Theory;
+Author:Daniel A. Marcus;
+Type:Textbook;
+Category:CPSC;
+Image:GraphTheory.jpg;
+Synopsis:Graph Theory presents a natural, reader-friendly way to learn some of the essential ideas of graph theory starting from first principles. The format is similar to the companion text, Combinatorics: A Problem Oriented Approach also by Daniel A. Marcus, in that it combines the features of a textbook with those of a problem workbook. The material is presented through a series of approximately 360 strategically placed problems with connecting text. This is supplemented by 280 additional problems that are intended to be used as homework assignments. Concepts of graph theory are introduced, developed, and reinforced by working through leading questions posed in the problems.;
+Location:LibraryB,1,13,2;
+}

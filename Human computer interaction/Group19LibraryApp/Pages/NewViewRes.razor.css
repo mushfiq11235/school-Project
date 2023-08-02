@@ -1,0 +1,100 @@
+.main-text {
+    font-family: 'Space_Grotesk', 'Spectral', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif, serif;
+}
+
+.secondary-text {
+    font-family: 'Spectral', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif, serif;
+}
+
+.reservation-main {
+    font-family: 'Space_Grotesk', 'Spectral', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif, serif;
+    text-align: center;
+    text-decoration: underline;
+    margin: 15px 0px 0px 0px;
+}
+
+.reservation-list {
+    margin: 15px 0px 0px 0px;
+    border-bottom-style: solid;
+    border-color: #50515247;
+    /*For invisible scroller*/
+}
+
+.a-reservation-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+    justify-content: space-around;
+    border-top-style: solid;
+    border-radius: 30px;
+    border-color: #50515247;
+    width: -webkit-fill-available;
+    margin: 20px 10px 20px 10px;
+    box-shadow: -3px 2px #c4c1df;
+    background-color: #e2eef4;
+}
+
+.reg-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.book-cover {
+    margin-left: 0px;
+    padding: 0px 10px 0px 0px;
+    border-right-style: solid;
+    border-right-color: #50515247;
+}
+
+.book-image {
+    object-fit: cover;
+    width: 118px;
+    height: 170px;
+    margin: 25px 0px 25px 00px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000000;
+}
+
+.reservation-details {
+    margin: 35px 0px 0px 0px;
+    text-align: center;
+}
+
+.scroller {
+    width: 475px;
+    height: 500px;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.scroller::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+.back {
+    position: absolute;
+    border-style: none;
+    background-color: #ffffff00;
+    font-size: 52px;
+    margin: -70px 0px 0px 10px;
+}
+
+.button-design {
+    background-color: #b5b4b48c;
+    border-style: none;
+    border-radius: 50px;
+    width: 269px;
+    height: 45px;
+    margin: 0px 0px 0px 95px;
+}
+
+.delete-button {
+    color: #b52d2d;
+    background-color: #ffffff00;
+    border-style: none
+}

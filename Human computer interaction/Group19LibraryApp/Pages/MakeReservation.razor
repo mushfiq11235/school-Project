@@ -1,0 +1,140 @@
+﻿@using Group19LibraryApp.Pages.Components
+@using Group19LibraryApp.Data
+@inject NavigationManager NavManager
+
+@page "/MakeReservation/{PathParam}"
+
+<PageTitle>Make Reservation page</PageTitle>
+
+<body>
+
+    @if(confirmationOverlay) {
+        <h1 class="reservation-text">Reservation Complete</h1>
+        <div class="checkmark">
+            <image src="Images/Checkmark.PNG" alt="CHECK"></image>
+        </div>
+        <button class="overlay" @onclick="reservationFinished"></button>
+    }
+
+    <div class="text-center">
+        <h1>Reservation</h1>
+    </div>
+    <div style="text-align: center; height: 360px; max-height: 50%"> <!--Changed height to 360px from 1000px-->
+        <img class="cover-sizing" src="Images/@newLibraryItem.ItemImageLink" alt="@newLibraryItem.Title @newLibraryItem.Type by @newLibraryItem.Author">
+    </div>
+
+    <!--Information entry fields-->
+    <EditForm Model="newLibraryItem" OnValidSubmit="AddItem">
+        <DataAnnotationsValidator />
+
+    <div class="divider"></div>
+
+    <div class="text-field">
+        <div class="vertical-center text">
+            <h2 class="text">Pickup available</h2>
+        </div>
+        <div class="textbox right">
+                @if (newLibraryItem.IsReserved)
+                {
+                    <h3 class="text">Book currently unavailable</h3> 
+            } else {
+                    <h3 class="text">2022-12-22</h3>
+            }
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="text-field">
+        <div class="vertical-center text">
+            <h2 class="text">Location</h2>
+        </div>
+        <div class="textbox right">
+                <select selected=@newLibraryItem.Location[0] @onchange="@OnSelect" class="text">
+                    <option value="LibraryA">LibraryA</option>
+                    <option value="LibraryB">LibraryB</option>
+                    <option value="LibraryC">LibraryC</option>
+                    <option value="LibraryD">LibraryD</option>
+                </select>
+        </div>
+    </div>
+
+    <!--reserve button-->
+    <div class="button-div">
+        <button type="submit">Reserve</button>
+    </div>
+    </EditForm>
+</body>
+
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+    [Parameter]
+    public string PathParam { get; set; }
+
+    private bool confirmationOverlay = false;
+
+    private bool failedOverlay = false;
+
+    LibraryItem newLibraryItem = null;
+
+    string pickUp = "";
+
+    private void OnSelect(ChangeEventArgs e) {
+        pickUp = e.Value.ToString();
+    }
+
+    private async void AddItem()
+    {
+        string[] locationList = new string[4];
+        foreach (var obj in LibraryData.books)
+        {
+            if (obj.Equals(newLibraryItem))
+            {
+                obj.UnReserved = false;
+                obj.IsReserved = true;
+                locationList[0] = pickUp;
+                locationList[1] = obj.Location[1];
+                locationList[2] = obj.Location[2];
+                locationList[3] = obj.Location[3];
+                obj.WhereToPickUp = locationList;
+            }
+        }
+        Group19LibraryApp.Data.LibraryData.history.Add(newLibraryItem);
+        await Task.Delay(100);
+        confirmationOverlay = true;
+        await InvokeAsync(() => StateHasChanged());
+        await Task.Delay(5000);
+        confirmationOverlay = false;
+        await InvokeAsync(() => StateHasChanged());
+    }
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = true;
+        Layout.showLocations = false;
+        Layout.update();
+        StateHasChanged();
+
+        if (PathParam != null)
+        {
+            foreach (var item in LibraryData.books)
+            {
+                if (item.Title == PathParam)
+                {
+                    newLibraryItem = item;
+                    break;
+                }
+            }
+        }
+
+        confirmationOverlay = false;
+    }
+
+    private void reservationFinished() {
+        this.confirmationOverlay = false;
+        NavManager.NavigateTo("/" + Group19LibraryApp.Data.LibraryData.lastPage);
+    }
+
+}

@@ -1,0 +1,193 @@
+hr {
+    border: 0;
+    background: #F87431;
+    height: 1px;
+    clear: both;
+    display: block;
+    width: 90%;
+    background-color: black;
+    margin: auto;
+    position: relative;
+    top: 25px;
+}
+
+
+img {
+    width: 475px;
+    height: 400px;
+    object-position: 0px 0px;
+    position: relative;
+    top: 10px;
+}
+
+
+
+#container {
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+
+.scroller {
+    width: 475px;
+    height: 727px;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.scroller::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+}
+
+h1 {
+    display: block;
+    font-size: 25px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    position: relative;
+    top: 25px;
+    left: 25px;
+}
+
+.Header2 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #9D9D9D;
+    position: relative;
+    top: 25px;
+    left: 25px;
+}
+
+.Header3 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #343434;
+    position: relative;
+    top: 25px;
+    left: 25px;
+}
+
+
+.Book2-Header2 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #9D9D9D;
+    position: relative;
+    top: 5px;
+    left: 25px;
+}
+
+.Book2-Header3 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #343434;
+    position: relative;
+    top: 5px;
+    left: 25px;
+}
+
+.Book2-Line {
+    border: 0;
+    background: #F87431;
+    height: 1px;
+    clear: both;
+    display: block;
+    width: 90%;
+    background-color: black;
+    margin: auto;
+    position: relative;
+    top: 0px;
+}
+
+.Book3-Header2 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #9D9D9D;
+    position: relative;
+    top: -15px;
+    left: 25px;
+}
+
+.Book3-Header3 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #343434;
+    position: relative;
+    top: -15px;
+    left: 25px;
+}
+
+.Book3-Line {
+    border: 0;
+    background: #F87431;
+    height: 1px;
+    clear: both;
+    display: block;
+    width: 90%;
+    background-color: black;
+    margin: auto;
+    position: relative;
+    top: -20px;
+}
+
+
+.btn-close {
+    z-index: 1;
+    color: #000000;
+    font-size: 12px;
+    position: relative;
+    left: 425px;
+    top: -12px;
+}
+
+.btn-close-2 {
+    z-index: 1;
+    color: #000000;
+    font-size: 12px;
+    position: relative;
+    left: 425px;
+    top: -35px;
+}
+
+.btn-close-3 {
+    z-index: 1;
+    color: #000000;
+    font-size: 12px;
+    position: relative;
+    left: 425px;
+    top: -55px;
+}

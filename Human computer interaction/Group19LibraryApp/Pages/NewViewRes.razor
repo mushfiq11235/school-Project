@@ -1,0 +1,95 @@
+@inject NavigationManager NavManager
+@inject NavigationManager UriHelper
+@using Group19LibraryApp.Pages.Components
+@using Sve.Blazor.InfiniteScroll.Components
+@using Group19LibraryApp.Data
+
+@page "/ViewNewReservation"
+
+<PageTitle>Reservations</PageTitle>
+
+<h2 class="reservation-main">Reservations</h2>
+<button id="back" class="back">&#8592</button>
+
+<hr />
+<!--TEMPORARY FOR TESTING-->
+<!--ObservableTargetReached="(e) => libraryItems.AddRange(libraryItems)"-->
+
+<section class="reservation-list">
+	<button class="button-design" type="button" @onclick="RevealCheckBox">Enable Delete Options</button>
+	<hr />
+	<InfiniteScroll ObserverTargetId="observerTarget" >
+		<div class="scroller">
+			<ul style="list-style: none;">
+				@foreach (var libItem in libraryItems) {
+					<li>
+						<div class="reg-row">
+							@if (ShowDeletes)
+							{
+								<input type="checkbox" @bind="libItem.UnReserved" /> <!--Auto set all items to UnReserved = false-->
+							}
+							<button class="a-reservation-row" @onclick="() => ViewSelected(libItem)">
+								<div class="book-cover">
+									<img id="image" class="book-image" src="Images/@libItem.ItemImageLink" alt="@libItem.Title by @libItem.Author">
+								</div>
+								<div class="reservation-details">
+									<h4 class="main-text">@libItem.Title</h4>
+									<h6 class="secondary-text">Wait List Position: @libItem.Waitlist_Position</h6>
+									<h6 class="secondary-text">Library Location: @libItem.WhereToPickUp[0]</h6>
+								</div>
+							</button>
+						</div>
+					</li>
+				}
+				<li id="observerTarget"></li>
+			</ul>
+	    </div>
+	</InfiniteScroll>
+	@if (ShowDeletes)
+	{
+		<button class="delete-button" @onclick="ClearItems">Delete Selected</button>
+	}
+</section>
+
+@code {
+	<!--LibraryItem newLibraryItem = new();-->
+
+	<!--List<LibraryItem> libraryItems = new();-->
+	List<LibraryItem> libraryItems = LibraryData.books.Where(i => !i.UnReserved).ToList();
+
+	bool ShowDeletes = false;
+
+	bool CanClear => !libraryItems.Any(i => i.UnReserved);
+
+	<!--
+	private void AddItem()
+	{
+		libraryItems.Add(newLibraryItem);
+		newLibraryItem = new();
+	}
+	-->
+	
+	public void ViewSelected(LibraryItem view_res){
+		NavManager.NavigateTo($"/Tracking/{view_res.Title}");
+	}
+
+	private void RevealCheckBox() {
+		ShowDeletes = !ShowDeletes;
+	}
+
+	private void ClearItems()
+	{
+		List<LibraryItem> Removing = libraryItems.Where(i => i.UnReserved).ToList();
+		libraryItems = libraryItems.Where(i => !i.UnReserved).ToList();
+
+		foreach (var libItem in LibraryData.books) {
+			foreach (var remItem in Removing) {
+				if (libItem == remItem) {
+					libItem.UnReserved = true;
+					libItem.IsReserved = false;
+				}
+			}
+		}
+		
+	}
+}

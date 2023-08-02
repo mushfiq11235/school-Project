@@ -1,0 +1,54 @@
+﻿@page "/Account"
+@inject NavigationManager NavManager
+
+<PageTitle>Account Information</PageTitle>
+
+<body>
+
+    <button id="back" @onclick="GoBack">&#8592</button>
+    <h1>Account Information</h1>
+
+<section class="Information">
+    <div class="entries">
+    <table>
+        <tr>
+            <td><p id="heading">Name</p><p id="value">John Doe</p></td>
+        </tr>
+        <tr>
+            <td><p id="heading">Email</p><p id="value">johndoe@gmail.com</p></td>
+        </tr>
+        </table>
+        </div>
+        <hr />
+        <div class="entries">
+        <table>
+        <tr>
+            <td><p id="heading">Phone Number</p><p id="value">403 123 4567</p></td>
+            <td id="change" align="right">change</td>
+        </tr>
+        <tr>
+            <td><p id="heading">Password</p><p id="value">*******</p></td>
+            <td id="change" align="right">change</td>
+        </tr>
+        </table>
+        </div>
+</section>
+
+</body>
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = true;
+        Layout.showLocations = false;
+        Layout.update();
+    }
+
+    private void GoBack()
+    {
+        NavManager.NavigateTo("/Profile");
+    }
+}

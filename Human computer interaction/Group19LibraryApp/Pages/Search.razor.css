@@ -1,0 +1,257 @@
+.book-container-column, .book-container-row {
+    display: flex;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.book-container-column {
+    flex-direction: column;
+    margin-top: 10vh;
+}
+
+.book-container-row {
+    flex-direction: row;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 50px;
+}
+
+h1 {
+    position: relative;
+    top: 30px;
+    left: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 700px;
+    height: 50px;
+    background: #E0ECF8;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 0px 50px;
+}
+
+    .search-bar input {
+        background: transparent;
+        flex: 1;
+        border: 0;
+        outline: none;
+        padding: 24px 20px;
+        font-size: 18px;
+        color: #1F53E4;
+    }
+
+::placeholder {
+    color: #1F53E4;
+}
+
+.search-bar button img {
+    width: 20px;
+    position: relative;
+    right: 340px;
+    top: -4px;
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: none;
+    cursor: pointer;
+}
+
+.vl {
+    border-left: 2px solid #A7A9BE;
+    height: 30px;
+    position: relative;
+    right: 335px;
+}
+
+.dropbtn {
+    border: 0;
+    outline: none;
+    text-indent: -60px;
+    text-decoration: none;
+    font-size: 18px;
+    height: 30px;
+    background: #E0ECF8;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 0px 50px;
+    position: relative;
+    left: 30px;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    top: 60px;
+    left: 30px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 140.7px;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.dropdown-content a {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+}
+
+    .dropdown-content a:hover {
+        color: #FFFFFF;
+        background-color: #00A4BD;
+    }
+
+
+
+.dropbtn img {
+    width: 15px;
+    position: relative;
+    left: 35px;
+}
+
+
+.dropbtn2 {
+    border: 0;
+    outline: none;
+    text-indent: -60px;
+    text-decoration: none;
+    font-size: 18px;
+    height: 30px;
+    background: #E0ECF8;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 0px 50px;
+    position: relative;
+    left: 30px;
+}
+
+.dropdown2 {
+    display: inline-block;
+    position: relative;
+    top: 60px;
+    left: 30px;
+}
+
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    width: 150px;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+
+.dropdown-content2 a {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+}
+
+    .dropdown-content2 a:hover {
+        color: #FFFFFF;
+        background-color: #00A4BD;
+    }
+
+.dropbtn2 img {
+    width: 15px;
+    position: relative;
+    left: 35px;
+}
+
+
+
+
+.dropbtn3 {
+    border: 0;
+    outline: none;
+    text-indent: -60px;
+    text-decoration: none;
+    font-size: 18px;
+    height: 30px;
+    background: #E0ECF8;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 0px 50px;
+    position: relative;
+    left: 30px;
+}
+
+.dropdown3 {
+    display: inline-block;
+    position: relative;
+    top: 60px;
+    left: 30px;
+}
+
+.dropdown-content3 {
+    display: none;
+    position: absolute;
+    width: 150px;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+
+.dropdown3:hover .dropdown-content3 {
+    display: block;
+}
+
+.dropdown-content3 a {
+    display: block;
+    color: #000000;
+    padding: 5px;
+    text-decoration: none;
+}
+
+    .dropdown-content3 a:hover {
+        color: #FFFFFF;
+        background-color: #00A4BD;
+    }
+
+.dropbtn3 img {
+    width: 15px;
+    position: relative;
+    left: 35px;
+}
+
+.apply-btn {
+    position: absolute;
+    top: 6%;
+    right: 3%;
+    border: 0;
+    outline: none;
+    text-indent: -1px;
+    text-decoration: none;
+    font-size: 19px;
+    height: 30px;
+    background: #E0ECF8;
+    border-radius: 3vh;
+}
+}

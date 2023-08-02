@@ -1,0 +1,97 @@
+﻿.cover-sizing {
+    object-fit: cover;
+    max-height: 100%;
+}
+
+.textbox {
+    border-radius: 5px;
+    border: 2px solid black;
+    max-width: 375px;
+    width: 100%;
+    margin: 10px;
+    max-height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .textbox > h3 {
+        color: dimgrey;
+    }
+
+.text-field {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /*border-bottom: 2px solid black;*/
+    display: inline-flex;
+    width: 100%
+}
+
+.text {
+    margin-left: 5px;
+    font-size: 20px;
+    display: inline-block;
+    line-height: normal;
+    vertical-align: middle;
+    border-width: 0px;
+}
+
+    .text.vertical-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        max-width: 20%;
+    }
+
+button {
+    background-color: mediumblue;
+    border-radius: 10px;
+    width: 85%;
+    height: 60px;
+    color: white;
+    font-size: 30px;
+}
+
+.divider {
+    margin-left: 20px;
+    max-width: 100%;
+    height: 0px;
+    width: 90%;
+    border: 2px;
+    padding: 0px;
+    border: 1px solid;
+    border-color: lightgray;
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+}
+
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 85%;
+    background-image: radial-gradient(circle farthest-corner at 50% 40%, rgb(64, 171, 206) 20%, rgb(84, 84, 245));
+}
+
+.checkmark {
+    left: 26%;
+    top: 25%;
+    position: absolute;
+    opacity: 100%;
+    z-index: 2;
+}
+
+.reservation-text {
+    font-weight: 600;
+    font-size: 45px;
+    margin-left: 25px;
+    position: absolute;
+    margin-top: 100%;
+    color: whitesmoke;
+    font-family: "Space Grotesk";
+    z-index: 3;
+}

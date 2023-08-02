@@ -1,0 +1,32 @@
+﻿body {
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.see-more {
+    position: absolute;
+    margin-top: 769px;
+    background-color: rgba(0,0,0,0.5);
+    color: #ffffff;
+    width: 476px;
+    height: 82px;
+}
+
+.cover-sizing {
+    object-fit: cover;
+    width: 475px;
+    height: 850px;
+}
+
+.back {
+    border-style: none;
+    background-color: #FFFFFF;
+    font-size: 52px;
+    top: 28px;
+    position: absolute;
+}

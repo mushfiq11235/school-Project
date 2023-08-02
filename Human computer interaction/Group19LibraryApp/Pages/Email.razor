@@ -1,0 +1,37 @@
+﻿@page "/Email"
+
+<PageTitle>Account Information</PageTitle>
+
+<body>
+
+    <button id="back">&#8592</button>
+    <h1>Email</h1>
+
+    <section class="Email">
+        <p>Actual Email Address</p>
+        <p style="color: #0001FC">johndoe@gmail.com</p>
+    </section>
+
+    <section class="Email-form">
+        <p>New email address</p>
+        <input type="email" placeholder="email">
+        <p>Confirm email address</p>
+        <input type="email" placeholder="email">
+    </section>
+
+    <button id="confirm-button">Confirm Modification</button>
+
+</body>
+
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = true;
+        Layout.showLocations = false;
+        Layout.update();
+    }
+}

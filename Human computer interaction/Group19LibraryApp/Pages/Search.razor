@@ -1,0 +1,227 @@
+@page "/Search"
+@using System.IO
+@using System.Text.Json
+
+
+@inject Group19LibraryApp.Data.LibraryData libData;
+@using Group19LibraryApp.components
+@using System.Collections;
+@using Group19LibraryApp.Pages.Components;
+@using System.Collections.Specialized;
+@using System.Web;
+@using System.Linq;
+@using System.Diagnostics;
+
+<PageTitle>Search Page</PageTitle>
+
+<h1>
+    Search
+</h1>
+
+<div class="container">
+<div action="" class="search-bar">
+
+    <input type="text" placeholder="Search..." @bind="searchText" />
+        <div class="vl"></div>
+    </div>
+</div>
+
+@{
+    int k = 0;
+}
+<EditForm model="this" OnValidSubmit=@ModifyFilter>
+<div class="dropdown">
+    <button class="dropbtn"><img src="LayoutImages/dropdown Arrow.png" />Genre</button>
+    <div class="vl2"></div>
+        <form class="dropdown-content">
+        @foreach (var catItem in theGenreFilters) {
+            string ids = "Genre" + k.ToString();
+            <InputCheckbox type="checkbox" @bind-Value="catItem.CategorySelected" id=@ids name=@ids />
+            <label for=@ids>@catItem.CategoryName</label><br>
+            k++;
+        }
+        <button class="clearbtn" @onclick="SetFilterNull">Clear Filters</button>
+        </form>
+</div>
+
+@{
+    k = 0;
+}
+<div class="dropdown2">
+    <button class="dropbtn2"><img src="LayoutImages/dropdown Arrow.png" />Type</button>
+    <div class="vl2"></div>
+        <form class="dropdown-content2">
+        @foreach (var catItem in theTypeFilters) {
+            string ids = "Type" + k.ToString();
+            <InputCheckbox type="checkbox" @bind-Value="catItem.CategorySelected" id=@ids name=@ids />
+            <label for=@ids>@catItem.CategoryName</label> <br>
+            k++;
+        }
+        </form>
+</div>
+
+@{
+    k = 0;
+}
+<div class="dropdown3">
+    <button class="dropbtn3"><img src="LayoutImages/dropdown Arrow.png" />Course</button>
+    <div class="vl2"></div>
+
+        <form class="dropdown-content3">
+        @foreach (var catItem in theCourseFilters) {
+            string ids = "Course" + k.ToString();
+            <InputCheckbox type="checkbox" @bind-Value="catItem.CategorySelected" id=@ids name=@ids />
+            <label for=@ids>@catItem.CategoryName</label><br>
+            k++;
+        }
+        </form>
+</div>
+<button class="apply-btn" type="submit">Apply Filters</button>
+</EditForm>
+
+    @if (!string.IsNullOrEmpty(searchText))
+    {
+        filterBooks();
+        List<LibraryItem> filteredOptions = fetchedBooks;
+
+        if (filteredOptions.Any())
+        {
+            int columns = 3;
+            int row = 0;
+            <div class="book-container-column">
+                @for (int i = 0; i < filteredOptions.Count(); i+= 3)
+                {
+                <div class="book-container-row">  
+                    @for (int j = 0; j < 3; j++) {
+                        @if ((filteredOptions.Count() - i - j - 1) >= 0) {
+                            <div style="width:150px; height:200px; margin-top:2vh; margin-left:2vh;">
+                                <BookCover info="@filteredOptions[i + j]" />
+                            </div>
+                        }
+                    }
+                        <!---->     
+                </div>
+                    @if ((filteredOptions.Count() - i - 1) < 3) {
+                        break;
+                    }
+                }
+            </div>        
+        }
+     
+        else
+        {
+            <p style="margin-top: 12vh; margin-left:5vh;">No results found.</p>
+        }
+    }
+
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+    private static List<LibraryCategory> theCourseFilters = new List<LibraryCategory>();
+    private static List<LibraryCategory> theGenreFilters = new List<LibraryCategory>();
+    private static List<LibraryCategory> theTypeFilters = new List<LibraryCategory>();
+    private List<LibraryCategory> currentFilters = null;
+    private List<LibraryItem> list = Group19LibraryApp.Data.LibraryData.books;
+    private List<LibraryItem> fetchedBooks = new List<LibraryItem>();
+
+    private Dictionary<String, String[]> dict = new Dictionary<String, String[]> {
+        { "Course", new String[] { "Biology", "Engineering", "CPSC", "ECON" } },
+        { "Genre", new String[] { "Comedy", "Sci-Fi", "Horror", "Adventure", "Fantasy" } },
+        { "Type", new String[] { "Book", "Textbook" } } };
+
+    private int rowCount = 0;
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = true;
+        Layout.showLocations = false;
+        Group19LibraryApp.Data.LibraryData.lastPage = "Search";
+        Layout.update();
+
+        InitializeTheFilters();
+    }
+
+    private void InitializeTheFilters() {
+        theCourseFilters = new List<LibraryCategory>();
+        theGenreFilters = new List<LibraryCategory>();
+        theTypeFilters = new List<LibraryCategory>();
+        LibraryCategory adding;
+        foreach (KeyValuePair<String, String[]> cat in dict) {
+
+            foreach (String c in cat.Value) {
+                adding = new LibraryCategory();
+                adding.CategoryType = cat.Key;
+                adding.CategoryName = c;
+                if (cat.Key == "Course")
+                {
+                    theCourseFilters.Add(adding);
+                } else if (cat.Key == "Genre") {
+                    theGenreFilters.Add(adding);
+                } else if (cat.Key == "Type") {
+                    theTypeFilters.Add(adding);
+                }
+            }
+        }
+    }
+    private string searchText;
+
+    public void ModifyFilter() {
+        foreach (var elem in theGenreFilters) {
+            System.Diagnostics.Debug.WriteLine(elem.CategoryName + " is " + elem.CategorySelected);
+        }
+        currentFilters = theCourseFilters.Concat(theGenreFilters).Concat(theTypeFilters).ToList().Where(i => i.CategorySelected).ToList();
+        System.Diagnostics.Debug.WriteLine("currentFilters has " + currentFilters.Count() + " items");
+        System.Diagnostics.Debug.WriteLine("overall there is " + theCourseFilters.Concat(theGenreFilters).Concat(theTypeFilters).ToList().Count() + " items");
+        filterBooks();
+    }
+
+    public void SetFilterNull() {
+        currentFilters = null;
+    }
+
+    public void applyFilter(LibraryItem book) {
+        foreach (var elem in currentFilters) {
+            if (!elem.CategoryType.Equals("Type", StringComparison.OrdinalIgnoreCase)) {
+                if (book.Genre != null) {
+                    foreach (string gen in book.Genre) {
+                        if (gen.Equals(elem.CategoryName, StringComparison.OrdinalIgnoreCase) && !fetchedBooks.Contains(book))
+                        {
+                            fetchedBooks.Add(book);
+                        }
+                    }
+                }
+            } else {
+                if (book.Type != null) {
+                    if (book.Type.Equals(elem.CategoryName, StringComparison.OrdinalIgnoreCase) && !fetchedBooks.Contains(book)) {
+                        fetchedBooks.Add(book);
+                    }
+                }
+            }
+        }
+
+    }
+
+    public void filterBooks()
+    {
+        fetchedBooks.Clear();
+        foreach (var book in list)
+        {
+            if (searchText != null)
+            {
+                if (book.Title.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    if (currentFilters == null)
+                    {
+                        fetchedBooks.Add(book);
+                    }
+                    else
+                    {
+                        applyFilter(book);
+                    }
+
+                }
+            }
+        }
+    }
+}

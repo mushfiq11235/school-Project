@@ -1,0 +1,115 @@
+@inject NavigationManager NavManager
+@using Group19LibraryApp.Data
+@using Group19LibraryApp.components;
+@using Group19LibraryApp.Pages.Components;
+@page "/MapButton/{PathParam}"
+
+<PageTitle>Map Button Page</PageTitle>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <style>
+        body {
+            font-family: 'DM Sans';
+            font-size: 22px;
+            background-color: #FFFFFF
+        }
+
+    </style>
+</head>
+
+<body>
+    @if (confirmationOverlay)
+    {
+        <h1 class="save-location-text">Saved Location</h1>
+        <div class="checkmark">
+            <image style="width: 30vh; height: 30vh;" src="Images/Checkmark.PNG" alt="CHECK"></image>
+        </div>
+        <div class="overlay"></div>
+    }
+
+    <header>
+    </header>
+
+
+    <div id="container2">
+        <button id="back" class="back" @onclick="GoBack">&#8592</button>
+        <img src="LayoutImages/@currentItem.ItemLocationImageLink" />
+        <h1>
+            <strong>@currentItem.Location[0]</strong>
+        </h1>
+        <h2 class="Header2">
+            Book Location
+        </h2>
+        <h2 class="Header3">
+            Row @currentItem.Location[1], Shelf @currentItem.Location[2]
+        </h2>
+        <hr />
+    </div>
+
+
+    <EditForm Model="currentItem" OnValidSubmit="AddItem">
+    <DataAnnotationsValidator />
+        <div id="container">
+            <button type="submit">Save Location</button>
+
+        </div>
+    </EditForm>
+ 
+
+ 
+</body>
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    [Parameter]
+    public string PathParam { get; set; }
+
+    private bool confirmationOverlay = false;
+
+    private LibraryItem currentItem = null;
+
+    private async void AddItem()
+    {
+        foreach (var obj in LibraryData.books)
+        {
+            if (obj.Equals(currentItem))
+            {
+                obj.LocationSaved = true;
+            }
+        }
+        await Task.Delay(100);
+        confirmationOverlay = true;
+        await InvokeAsync(() => StateHasChanged());
+        await Task.Delay(5000);
+        confirmationOverlay = false;
+        await InvokeAsync(() => StateHasChanged());
+    }
+
+    private void GoBack() {
+        NavManager.NavigateTo($"/Details/{currentItem.Title}");
+    }
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = true;
+        Layout.showLocations = false;
+        Layout.update();
+
+        if (PathParam != null)
+        {
+            foreach (var item in LibraryData.books)
+            {
+                if (item.Title == PathParam)
+                {
+                    currentItem = item;
+                    break;
+                }
+            }
+        }
+
+        confirmationOverlay = false;
+    }
+}

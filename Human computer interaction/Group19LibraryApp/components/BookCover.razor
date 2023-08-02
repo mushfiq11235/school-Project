@@ -1,0 +1,43 @@
+﻿@inject NavigationManager NavManager
+@using Group19LibraryApp.Data
+@using Group19LibraryApp.components;
+@using Group19LibraryApp.Pages.Components;
+
+<input type="image" alt=@imageName src="@imagePath" @onclick="this.onImageClick" style="object-fit:fill; width: auto; height: auto; max-height: 100%; max-width: 100%">
+@if(studentClass != "") {
+    <div style="background-color: cornflowerblue; height: 15%; width: 100%; position: absolute; bottom: 0px;">
+        <h3 style="text-align:center; font-size: 14px; color: black; vertical-align: middle">@studentClass</h3>
+    </div>
+}
+
+@code {
+    private string maxWidth = "100%";
+    private string maxHeight = "100%";
+    private string imagePath = "Images/imageNotFound.jpg";
+    public string studentClass = "";
+
+    public string imageName { get; set; } = "imageNotFound.jpg";
+    [Parameter]
+    public LibraryItem info { get; set; } = null;
+    
+    public void setProperties(LibraryItem info)
+    {
+        if (info == null)
+            return;
+        this.imagePath = "Images/" + info.ItemImageLink;
+        this.imageName = info.ItemImageLink;
+        if(Group19LibraryApp.Data.LibraryData.studentBooks.ContainsKey(info.Title)) {
+            this.studentClass = Group19LibraryApp.Data.LibraryData.studentBooks[info.Title];
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        setProperties(this.info);
+        base.OnInitialized();
+    }
+
+    private void onImageClick() {
+        NavManager.NavigateTo($"/Cover/{this.info.Title}");
+    }
+}

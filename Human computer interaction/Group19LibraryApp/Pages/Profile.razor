@@ -1,0 +1,53 @@
+﻿@page "/Profile"
+
+@inject NavigationManager NavManager
+
+<PageTitle>Profile Page</PageTitle>
+
+<body>
+    <section class="Profile-Header">
+        <img src="https://cdn.pixabay.com/photo/2021/04/12/08/10/coffee-6171744_960_720.jpg" alt="Profile" width="80px" height="80px" />
+        <div class="Profile-Info">
+            <h2><b>John Doe</b></h2>
+            <p style="color:#0001FC">Library Member</p>
+        </div>
+    </section>
+
+    <section class="Profile-Selections">
+        <button @onclick="GoAccount">Account Information</button>
+        <!--
+            <button>Security and Settings</button>
+        <button>Notification</button>
+        <button>Accessability</button>
+        -->
+        <button @onclick="GoHistory">History</button>
+        <button @onclick="GoLogin">Sign Out</button>
+    </section>
+</body>
+
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = true;
+        Layout.showLocations = false;
+        Layout.update();
+    }
+
+    private void GoHistory()
+    {
+        NavManager.NavigateTo("/History");
+    }
+
+    private void GoLogin()
+    {
+        NavManager.NavigateTo("/SignUp");
+    }
+
+    private void GoAccount() {
+        NavManager.NavigateTo("/Account");
+    }
+}

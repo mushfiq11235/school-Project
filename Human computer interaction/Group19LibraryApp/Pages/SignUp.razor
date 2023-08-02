@@ -1,0 +1,61 @@
+﻿@page "/SignUp"
+@page "/"
+@inject NavigationManager NavManager
+
+<PageTitle>Sign-up Page</PageTitle>
+
+<div>
+	<header>
+		<h1 class="main-header">Welcome Back!</h1>
+	</header>
+
+	<section class="top-section">
+		<p class="instruction">Please enter your details</p>
+		<form class="form-spacing">
+			<div class="entry">
+				<label>UID:</label>
+				<input @bind="@UID" style=@wrongCSS class ="textfield-design" type="text" name="universityIdentification">
+			</div>
+			<div class="entry">
+				<label>Password</label>
+				<input @bind="@password" style=@wrongCSS class="textfield-design" type="text" name="InputPassword">
+				<label class="forgot">Forgot your password?</label>
+			</div>
+		</form>
+	</section>
+	<section class="bottom-section" style="width:100%; margin:0px">
+		<button class="login" @onclick=login>Log in</button>
+	</section>
+</div>
+
+@code {
+	[CascadingParameter]
+	public MainLayout Layout { get; set; }
+
+	private string UID = "";
+	private string password = "";
+	private string wrongCSS = "";
+
+	protected override void OnInitialized()
+	{
+		Layout.showMenu = false;
+		Layout.showLocations = false;
+		Layout.update();
+	}
+
+	private string userName = "John";
+	private string GetUserName() {
+		return userName;
+	}
+
+	private void login() {
+		if (password != "1234" || UID != "0000")
+		{
+			wrongCSS = "border: 3px solid red";
+		}
+		else
+		{
+			NavManager.NavigateTo("/Browse");
+		}
+	}
+}

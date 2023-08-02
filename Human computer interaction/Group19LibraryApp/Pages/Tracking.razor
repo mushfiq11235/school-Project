@@ -1,0 +1,105 @@
+@using Group19LibraryApp.Data
+@using Group19LibraryApp.components;
+@using Group19LibraryApp.Pages.Components;
+@page "/Tracking/{PathParam}"
+
+<PageTitle>Tracking Page</PageTitle>
+
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Space Grotesk' rel='stylesheet'>
+    <style>
+        body {
+			font-family: 'Space Grotesk';
+            font-size: 22px;
+        
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+    </header>
+	
+	<h1>
+		Tracking @libItem.Title
+	</h1>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-10 pt45 pb20">
+				<div class="row justify-content-between">
+					<div class="order-tracking completed">
+						<span class="is-complete"></span>
+						<p style="font-size:16x" >Request Received<br><span style="font-size:16px">Mon, November 7</span></p>
+					</div>
+					<div class="order-tracking completed">
+						<span class="is-complete"></span>
+						<p style="font-size:16px">In Progress<br><span style="font-size:16px">Mon, November 7</span></p>
+					</div>
+					<div class="order-tracking">
+						<span class="is-complete"></span>
+						<p>Ready for Pick Up<br></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h1 class="Reservation-Number">
+		Reservation Number
+	</h1>
+
+	<h2>
+		LO40569863554NI
+	</h2>
+		
+	<h3 class="date">
+		7/11/22
+	</h3>
+
+	<p class="Update">
+		Library attendant has confirmed your reservation
+	</p>
+
+	<div>
+		<hr style="margin-top: 60px;"/>
+		<div class="container-repeat-info">		
+			<p>Location: @libItem.Location[0]</p>
+			<p>Waitlist Position: @libItem.Waitlist_Position</p>
+		</div>
+		<button>
+			Cancel Reservation
+		</button>
+	</div>
+
+</body>
+
+
+@code {
+	[CascadingParameter]
+	public MainLayout Layout { get; set; }
+
+	[Parameter]
+	public string PathParam { get; set; }
+
+	private LibraryItem libItem = null;
+
+	protected override void OnInitialized()
+	{
+		Layout.showMenu = true;
+		Layout.showLocations = false;
+		Layout.update();
+
+		if (PathParam != null) {
+			foreach(var item in LibraryData.books) {
+				if (item.Title == PathParam) {
+					libItem = item;
+					break;
+				}
+			}
+		}
+    }
+}

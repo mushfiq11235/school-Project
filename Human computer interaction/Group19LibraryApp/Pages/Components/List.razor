@@ -1,0 +1,46 @@
+﻿@page "/list"
+
+<h3>List</h3>
+<!--Adding the book via user input (change to abstracting it from an array)-->
+<EditForm Model="newLibraryItem" OnValidSubmit="AddItem">
+	<DataAnnotationsValidator/>
+	<div class="form-group">
+		<input placeholder="Item Name" @bind="newLibraryItem.Title" />
+		<ValidationMessage For="@(() => newLibraryItem.Title)" />
+	</div>
+	<button type="submit" class="btn btn-primary">Add</button>
+	<button type="button" class="btn btn-danger" disabled="@CanClear" @onclick="ClearItems">
+		Clear Finished
+	</button>
+</EditForm>
+
+<hr />
+
+<!--Display items-->
+<ul class="list-group">
+	@foreach (var libItem in libraryItems) {
+		<li class="list-group-item">
+			<input type="checkbox" @bind="libItem.UnReserved" />
+			<span>
+				@libItem.Title
+			</span>
+		</li>
+	}
+</ul>
+
+@code {
+	LibraryItem newLibraryItem = new();
+
+	List<LibraryItem> libraryItems = new();
+
+	bool CanClear => !libraryItems.Any(i => i.UnReserved);
+
+	void AddItem() {
+		libraryItems.Add(newLibraryItem);
+		newLibraryItem = new();
+	}
+
+	void ClearItems() {
+		libraryItems = libraryItems.Where(i => !i.UnReserved).ToList();
+	}
+}

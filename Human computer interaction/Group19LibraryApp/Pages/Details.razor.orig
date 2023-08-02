@@ -1,0 +1,120 @@
+@inject NavigationManager NavManager
+@using Group19LibraryApp.Data
+@using Group19LibraryApp.components;
+@using Group19LibraryApp.Pages.Components;
+@page "/Details/{PathParam}"
+
+<PageTitle>Details</PageTitle>
+
+<section class="scroller-all">
+	<div class="synopsis">
+		<section class="space-synopsis">
+			<button id="back" class="back" @onclick="GoBack">&#8592</button>
+			<img class="small-sizing" src="Images/@lib_item.ItemImageLink" alt="@lib_item.Title @lib_item.Type by @lib_item.Author">
+			<p class="other-text">Genre: @foreach(var itm in @lib_item.Genre) {<span>@itm</span> <br />}</p>
+			<p class="other-text">Author: @lib_item.Author</p>
+		</section>
+		<section class="written-synopsis">
+			<h3 class="synopsis-title">Synopsis: </h3>
+			<p class="syn-text">@lib_item.Synopsis</p>
+			@*<p class="syn-text">Providing a interesting perspective on how a disturbance in a system can propogate to a larger portion of the system.</p>*@
+		</section>
+	</div>
+	<div class="btn-container">
+		<button class="btn-size" @onclick="LookAtMap">
+			<p class="btn-text">Map</p>
+			<span class="material-symbols-outlined btn-icons">map</span>
+		</button>
+		<button class="btn-size" @onclick="OpenReserve">
+			<p class="btn-text">Reserve</p>
+			<span class="material-symbols-outlined btn-icons">calendar_today</span>
+		</button>
+	</div>
+	<div>
+		<h4 class="see-more">Similar Books</h4>
+		<div class="book-container scroller">
+            @if (libList != null)
+			{
+                @foreach (var sim_items in libList)
+				{
+					<BookCover class="small-sizing" info="@sim_items" />
+				}
+			}
+			<!--HERE FOR CHECKING STYLE OF ITEMS-->
+			<img class="small-sizing" src="Images/free-cover.jpg" alt="The Ripple Effect Book by Daryle S.">
+			<img class="small-sizing" src="Images/free-cover.jpg" alt="The Ripple Effect Book by Daryle S.">
+			<img class="small-sizing" src="Images/free-cover.jpg" alt="The Ripple Effect Book by Daryle S.">
+			<!--HERE FOR CHECKING STYLE OF ITEMS-->
+			<button class="scroll">
+				<span class="material-symbols-outlined btn-icons">
+					chevron_right
+				</span>
+			</button>
+		</div>
+	</div>
+</section>
+
+
+@code {
+    [CascadingParameter]
+    public MainLayout Layout { get; set; }
+
+    [Parameter]
+    public string PathParam { get; set; }
+
+    public LibraryItem lib_item = null;
+<<<<<<< HEAD
+    private List<LibraryItem> list = new List<LibraryItem>();
+=======
+    private List<LibraryItem> libList = new List<LibraryItem> { };
+>>>>>>> origin/Joanne++
+
+    private void LookAtMap() {
+        NavManager.NavigateTo($"/MapButton/{lib_item.Title}");
+    }
+
+    private void GoBack()
+    {
+        NavManager.NavigateTo($"/Cover/{lib_item.Title}");
+    }
+
+    private void OpenReserve() {
+        NavManager.NavigateTo($"/MakeReservation/{lib_item.Title}");
+    }
+
+    protected override void OnInitialized()
+    {
+        Layout.showMenu = true;
+        Layout.showLocations = true;
+        Layout.update();
+
+        if (PathParam != null)
+        {
+            foreach (var item in LibraryData.books)
+            {
+                if (item.Title == PathParam)
+                {
+                    lib_item = item;
+                    break;
+                }
+            }
+        }
+
+        if (lib_item != null)
+        {
+            foreach (var b in LibraryData.books)
+            {
+                if (b.Genre != null && !b.Equals(lib_item))
+                {
+                    foreach (var g in b.Genre)
+                    {
+                        if (lib_item.Genre.Contains(g) && g != null)
+                        {
+                            libList.Add(b);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

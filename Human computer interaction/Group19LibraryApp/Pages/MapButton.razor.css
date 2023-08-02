@@ -1,0 +1,125 @@
+hr {
+    border: 0;
+    background: #F87431;
+    height: 1px;
+    clear: both;
+    display: block;
+    width: 90%;
+    background-color: black;
+    margin: auto;
+    position: relative;
+    top: 50px;
+}
+
+.back {
+    border-style: none;
+    background-color: #ffffff00;
+    font-size: 52px;
+    top: -5px;
+    left: 10px;
+    width: 50px;
+    color: black;
+    position: absolute;
+    z-index: 1;
+}
+
+img {
+    width: 475px;
+    height: 430px;
+    object-position: 0px 0px;
+    position: relative;
+    top: 30px;
+}
+
+button {
+    height: 58px;
+    width: 430px;
+    font-size: 18px;
+    background-color: #0135EB;
+    border: none;
+    color: #FFFFFF;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    object-position: 100px 30px;
+}
+
+    button:hover {
+        filter: brightness(85%);
+    }
+
+#container {
+    text-align: center;
+    position: relative;
+    top: 100px;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 85%;
+    background-image: radial-gradient(circle farthest-corner at 50% 40%, rgb(64, 171, 206) 20%, rgb(84, 84, 245));
+    z-index: 1;
+    top: 0vh;
+}
+
+.checkmark {
+    left: 27%;
+    top: 18%;
+    position: absolute;
+    opacity: 100%;
+    z-index: 2;
+}
+
+h1 {
+    display: block;
+    font-size: 25px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    position: relative;
+    top: 50px;
+    left: 25px;
+}
+
+.Header2 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #9D9D9D;
+    position: relative;
+    top: 50px;
+    left: 25px;
+}
+
+.Header3 {
+    display: block;
+    font-size: 16px;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    color: #343434;
+    position: relative;
+    top: 50px;
+    left: 25px;
+}
+
+.save-location-text {
+    font-weight: 600;
+    font-size: 45px;
+    margin-left: 65px;
+    position: absolute;
+    margin-top: 80%;
+    color: whitesmoke;
+    font-family: "Space Grotesk";
+    z-index: 3;
+}
